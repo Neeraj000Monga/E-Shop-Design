@@ -1,0 +1,39 @@
+mport { useEffect, useState } from "react";
+const [loading, setLoading] = useState(false);  
+import Skeleton from "react-loading-skeleton";
+
+useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+
+      {!loading ? ( 
+         <div>
+         </div>
+
+          ) : (
+             <Skeletons  />
+          )} 
+=====================================================
+import Skeleton from "react-loading-skeleton";
+
+        {userData?.length > 0 ? (
+           <>
+            {userData.map((item, i) => (
+                  <ImgWrapper>
+                  </ImgWrapper>
+             ))}
+          </>
+        ) : (
+          <CardWrapper>
+            {[1, 1, 1, 1].map(() => {
+              return (
+                <>
+                  <Skeletons />
+                </>
+              );
+         })}

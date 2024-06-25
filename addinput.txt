@@ -1,0 +1,33 @@
+import { useState } from "react";
+// import './App.css'
+
+function App() {
+  const [activity, setactivity] = useState("");
+  const [listdata, setListdata] = useState([]);
+
+  function addactivity() {
+    // setListdata([...listdata, activity])
+    // console.log(listdata)
+
+    setListdata((listdata) => {
+      const updatedlist = [...listdata, activity];
+      console.log(updatedlist);
+      setactivity("")
+      return updatedlist;
+    });
+  }
+
+  return (
+    <>
+      <input
+        placeholder="activity"
+        value={activity}
+        onChange={(e) => setactivity(e.target.value)}
+      />
+      <button onClick={addactivity}>add</button>
+      <h5>{listdata}</h5>
+    </>
+  );
+}
+
+export default App;
